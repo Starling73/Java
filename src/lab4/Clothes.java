@@ -1,8 +1,8 @@
 package lab4;
 
-public class Clothes implements Comparable {
+public class Clothes {
     private float price;
-    private int size;
+    private Integer size;
     private String type;
     private String genter;
     private String brand;
@@ -26,8 +26,12 @@ public class Clothes implements Comparable {
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return type.compareTo(((Clothes) o).type);
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 }
