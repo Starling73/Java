@@ -16,13 +16,41 @@ public class Text {
         return textString.toString();
     }
 
-    public int findWordEntrancesQuantity(String wordString) {
-        int wordEntrancesQuantity = 0;
-
-        for (Sentence sentence : sentences) {
-            wordEntrancesQuantity += sentence.findWordEntrancesQuantity(wordString);
+    public void sortLetterQuantity(Text text, char letter) {
+        String str = text.toString();
+        str = str.replaceAll(", ", " ");
+        str = str.replaceAll("\\? ", " ");
+        str = str.replaceAll("\\. ", " ");
+        str = str.replaceAll("! ", " ");
+        String[] sortedStr = str.split(" ");
+        int[] countArray = new int[sortedStr.length];
+        for (int i = 0; i < sortedStr.length; i++) {
+            for (int j = 0; j < sortedStr[i].length(); j++) {
+                if (sortedStr[i].charAt(j) == letter) {
+                    countArray[i] += 1;
+                }
+            }
         }
 
-        return wordEntrancesQuantity;
+        for (int i = 0; i < countArray.length - 1; i++) {
+            for (int j = i + 1; j < sortedStr.length; j++) {
+                if (countArray[j] < countArray[i]) {
+                    var temp = countArray[i];
+                    String tempSTR = sortedStr[i];
+
+
+                    countArray[i] = countArray[j];
+                    countArray[j] = temp;
+
+                    sortedStr[i] = sortedStr[j];
+                    sortedStr[j] = tempSTR;
+                }
+            }
+        }
+
+        for (int i = 0; i < sortedStr.length; i++) {
+            System.out.print(sortedStr[i] + "  ");
+        }
+
     }
 }

@@ -7,9 +7,6 @@ public class Sentence {
         this.sentenceElements = sentenceElements;
     }
 
-    /*public Sentence(Word[] words, Punctuation[] punctuations) {
-        this.sentenceElements = sentenceElements;
-    }*/
 
     @Override
     public String toString() {

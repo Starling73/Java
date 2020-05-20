@@ -3,7 +3,7 @@ package lab5;
 public class Letter {
     private boolean isUpperCase;
     private boolean isVowel;
-    private char symbol; // A, a
+    private char symbol;
 
     public Letter(char symbol) {
         this.symbol = symbol;
