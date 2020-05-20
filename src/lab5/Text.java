@@ -47,7 +47,7 @@ public class Text {
                 }
             }
         }
-
+        System.out.println("Sorted text:");
         for (int i = 0; i < sortedStr.length; i++) {
             System.out.print(sortedStr[i] + "  ");
         }

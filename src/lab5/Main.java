@@ -78,10 +78,6 @@ public class Main {
 
         System.out.println(text);
 
-//        !!! CLIENT IS ALIVE
-//        Client client = new Client(text);
-//        client.startLiveInTheSystem();
         text.sortLetterQuantity(text, 'l');
-        System.out.println("\nDone! :)");
     }
 }
