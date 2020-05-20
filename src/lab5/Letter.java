@@ -1,17 +1,16 @@
 package lab5;
 
 public class Letter {
-    private char letter;
+    private boolean isUpperCase;
+    private boolean isVowel;
+    private char symbol; // A, a
 
-    public Letter(char a) {
-        setLetter(a);
+    public Letter(char symbol) {
+        this.symbol = symbol;
     }
 
-    public char getLetter() {
-        return this.letter;
-    }
-
-    public void setLetter(char a) {
-        this.letter = a;
+    @Override
+    public String toString() {
+        return "" + symbol;
     }
 }
