@@ -22,6 +22,9 @@ public class Text {
         str = str.replaceAll("\\? ", " ");
         str = str.replaceAll("\\. ", " ");
         str = str.replaceAll("! ", " ");
+        str = str.replaceAll("\\.", " ");
+        str = str.replaceAll("!", " ");
+        str = str.replaceAll("\\?", " ");
         String[] sortedStr = str.split(" ");
         int[] countArray = new int[sortedStr.length];
         for (int i = 0; i < sortedStr.length; i++) {
