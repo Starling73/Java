@@ -7,6 +7,14 @@ public class Text {
         this.sentences = sentences;
     }
 
+    public Text(String textString) {
+        String[] sentencesStrings = textString.split("(?<=[?!.]) ");
+        sentences = new Sentence[sentencesStrings.length];
+        for (int i = 0; i < sentencesStrings.length; i++) {
+            sentences[i] = new Sentence(sentencesStrings[i]);
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder textString = new StringBuilder();
