@@ -2,45 +2,67 @@ package lab7;
 
 import lab6.SortOfCoffee;
 
+import javax.swing.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
 public class MyList implements List<SortOfCoffee> {
+    private Node head;
+    private Node tail;
+    private int size;
 
-    public MyList() {
-
-    }
+    public MyList() {}
 
     public MyList(SortOfCoffee sortOfCoffee) {
-
         add(sortOfCoffee);
     }
 
-    public MyList(Collection collection) {
-
+    public MyList(Collection<? extends SortOfCoffee> collection) {
         addAll(collection);
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
+        for (SortOfCoffee sortOfCoffee : this) {
+            if(sortOfCoffee.equals(o)){
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public Iterator<SortOfCoffee> iterator() {
-        return null;
+        return new MyIterator();
+    }
+
+    class MyIterator implements Iterator<SortOfCoffee>{
+        protected Node currentNode = head;
+
+        @Override
+        public boolean hasNext() {
+            return currentNode != null;
+        }
+
+        @Override
+        public SortOfCoffee next() {
+            SortOfCoffee sortOfCoffee = currentNode.getSortOfCoffee();
+            currentNode = currentNode.getNext();
+            return sortOfCoffee;
+        }
+
     }
 
     @Override
@@ -55,7 +77,15 @@ public class MyList implements List<SortOfCoffee> {
 
     @Override
     public boolean add(SortOfCoffee sortOfCoffee) {
-        return false;
+        Node node = new Node(sortOfCoffee, null);
+        if(head == null){
+            head = node;
+        } else {
+            tail.setNext(node);
+        }
+        tail = node;
+        size++;
+        return true;
     }
 
     @Override
@@ -70,7 +100,11 @@ public class MyList implements List<SortOfCoffee> {
 
     @Override
     public boolean addAll(Collection<? extends SortOfCoffee> collection) {
-        return false;
+        boolean isCollectionChanged = false;
+        for (SortOfCoffee sortOfCoffee : collection) {
+            isCollectionChanged = add(sortOfCoffee);
+        }
+        return isCollectionChanged;
     }
 
     @Override
@@ -125,7 +159,57 @@ public class MyList implements List<SortOfCoffee> {
 
     @Override
     public ListIterator<SortOfCoffee> listIterator() {
-        return null;
+        return new MyListIterator();
+    }
+
+    class MyListIterator extends MyIterator implements ListIterator<SortOfCoffee>{
+//        @Override
+//        public boolean hasNext() {
+//            return false;
+//        }
+//
+//        @Override
+//        public SortOfCoffee next() {
+//            return null;
+//        }
+
+        @Override
+        public boolean hasPrevious() {
+            return currentNode != head;
+        }
+        //todo
+        @Override
+        public SortOfCoffee previous() {
+            SortOfCoffee sortOfCoffee = currentNode.getSortOfCoffee();
+            currentNode = currentNode.getNext();
+            return sortOfCoffee;
+        }
+
+        @Override
+        public int nextIndex() {
+            return 0;
+        }
+
+        @Override
+        public int previousIndex() {
+            return 0;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void set(SortOfCoffee sortOfCoffee) {
+
+        }
+
+        @Override
+        public void add(SortOfCoffee sortOfCoffee) {
+
+        }
+
     }
 
     @Override
