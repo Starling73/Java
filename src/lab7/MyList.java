@@ -124,7 +124,9 @@ public class MyList implements List<SortOfCoffee> {
 
     @Override
     public void clear() {
-
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     @Override
@@ -177,6 +179,7 @@ public class MyList implements List<SortOfCoffee> {
         public boolean hasPrevious() {
             return currentNode != head;
         }
+
         //todo
         @Override
         public SortOfCoffee previous() {

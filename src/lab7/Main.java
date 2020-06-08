@@ -24,7 +24,7 @@ public class Main {
         myList1.add(new Liberica());
 
         MyList emptyList = new MyList();
-        emptyList.add(new Arabica());
+//        emptyList.add(new Arabica());
 //        System.out.println(emptyList.isEmpty());
 
         ArrayList arrayList = new ArrayList();
@@ -36,6 +36,7 @@ public class Main {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+//        myList2.clear();
 
         System.out.println(myList1.contains(new Arabica()));
     }
