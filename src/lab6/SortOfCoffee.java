@@ -2,8 +2,9 @@ package lab6;
 
 public class SortOfCoffee {
     private int field;
+
     @Override
-    public String toString(){
+    public String toString() {
         return "SortOfCofee{" +
                 "sort: " + getClass().getSimpleName() + "}";
     }

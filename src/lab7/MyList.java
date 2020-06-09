@@ -13,7 +13,8 @@ public class MyList implements List<SortOfCoffee> {
     private Node tail;
     private int size;
 
-    public MyList() {}
+    public MyList() {
+    }
 
     public MyList(SortOfCoffee sortOfCoffee) {
         add(sortOfCoffee);
@@ -36,7 +37,7 @@ public class MyList implements List<SortOfCoffee> {
     @Override
     public boolean contains(Object o) {
         for (SortOfCoffee sortOfCoffee : this) {
-            if(sortOfCoffee.equals(o)){
+            if (sortOfCoffee.equals(o)) {
                 return true;
             }
         }
@@ -48,7 +49,7 @@ public class MyList implements List<SortOfCoffee> {
         return new MyIterator();
     }
 
-    class MyIterator implements Iterator<SortOfCoffee>{
+    class MyIterator implements Iterator<SortOfCoffee> {
         protected Node currentNode = head;
 
         @Override
@@ -78,7 +79,7 @@ public class MyList implements List<SortOfCoffee> {
     @Override
     public boolean add(SortOfCoffee sortOfCoffee) {
         Node node = new Node(sortOfCoffee, null);
-        if(head == null){
+        if (head == null) {
             head = node;
         } else {
             tail.setNext(node);
@@ -164,7 +165,7 @@ public class MyList implements List<SortOfCoffee> {
         return new MyListIterator();
     }
 
-    class MyListIterator extends MyIterator implements ListIterator<SortOfCoffee>{
+    class MyListIterator extends MyIterator implements ListIterator<SortOfCoffee> {
 //        @Override
 //        public boolean hasNext() {
 //            return false;

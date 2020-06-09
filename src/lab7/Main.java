@@ -33,7 +33,7 @@ public class Main {
         MyList myList2 = new MyList(arrayList);
 
         Iterator iterator = myList2.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
 //        myList2.clear();
